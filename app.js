@@ -3,11 +3,15 @@ const app = express()
 const fs = require('fs')
 const axios = require('axios')
 const schedule = require('node-schedule')
-const data = require('./data.json')
+const moment = require('moment')
+const dataJsonPath = require('./data.json')
+
+let today = moment().format('YYYY-MM-DD');
+let tomorrow = moment().add(1, 'days').format('YYYY-MM-DD');
 
 function generateJson() {
   let results = {
-    data: []
+    "data": []
   }
   const EJPPromise = axios.get(`https://particulier.edf.fr/bin/edf_rc/servlets/ejptemponew?Date_a_remonter=${today}&TypeAlerte=EJP`)
   const TEMPOPromise = axios.get(`https://particulier.edf.fr/bin/edf_rc/servlets/ejptemponew?Date_a_remonter=${today}&TypeAlerte=TEMPO`)
@@ -25,7 +29,11 @@ function generateJson() {
     });
 }
 
-let job = schedule.scheduleJob('* * 6 * * *', function(fireDate){
+let job = schedule.scheduleJob('0 45 16 * * *', function(){
+  generateJson()
+});
+
+let job2 = schedule.scheduleJob('0 0 17 * * *', function(){
   generateJson()
 });
 
@@ -37,9 +45,7 @@ app.get('*', function (req, res) {
   if (req.method === 'OPTIONS') {
     res.set('Access-Control-Allow-Headers', 'Accept, Content-Type')
   }
-  res.json(data)
+  res.json(dataJsonPath)
 })
 
-let listener = app.listen(function () {
-  console.log('app listening ' + listener.address().port)
-})
+app.listen()
