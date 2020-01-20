@@ -37,6 +37,10 @@ let job2 = schedule.scheduleJob('0 0 17 * * *', function(){
   generateJson()
 });
 
+let job3 = schedule.scheduleJob('0 0 2 * * *', function(){
+  generateJson()
+});
+
 app.get('*', function (req, res) {
   res.set({
     'Content-Type': 'application/json',
