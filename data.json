@@ -1,1 +1,1 @@
-{"data":[{"JourJ1":{"EjpNord":"NON_EJP","EjpOuest":"NON_EJP","EjpPaca":"NON_EJP","EjpSud":"NON_EJP"},"JourJ":{"EjpNord":"NON_EJP","EjpOuest":"NON_EJP","EjpPaca":"NON_EJP","EjpSud":"NON_EJP"}},{"JourJ1":{"Tempo":"TEMPO_BLANC"},"JourJ":{"Tempo":"TEMPO_ROUGE"}}]}
+{"data":[{"JourJ1":{"EjpNord":"ND","EjpOuest":"ND","EjpPaca":"ND","EjpSud":"ND"},"JourJ":{"EjpNord":"EST_EJP","EjpOuest":"EST_EJP","EjpPaca":"EST_EJP","EjpSud":"EST_EJP"}},{"JourJ1":{"Tempo":"TEMPO_ROUGE"},"JourJ":{"Tempo":"TEMPO_ROUGE"}}]}
