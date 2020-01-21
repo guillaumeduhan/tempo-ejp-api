@@ -1,4 +1,4 @@
-# tempo-ejp-api
+# tempo-ejp-api v1.2
 
 API to catch TEMPO-EJP data, save it as JSON file and return on request.
 
