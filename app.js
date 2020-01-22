@@ -29,15 +29,19 @@ function generateJson() {
     });
 }
 
-let job = schedule.scheduleJob('0 45 16 * * *', function(){
+let job = schedule.scheduleJob('0 0 2 * * *', function(){
   generateJson()
 });
 
-let job2 = schedule.scheduleJob('0 0 17 * * *', function(){
+let job1 = schedule.scheduleJob('0 0 13 * * *', function(){
   generateJson()
 });
 
-let job3 = schedule.scheduleJob('0 0 2 * * *', function(){
+let job2 = schedule.scheduleJob('0 45 16 * * *', function(){
+  generateJson()
+});
+
+let job3 = schedule.scheduleJob('0 0 17 * * *', function(){
   generateJson()
 });
 
