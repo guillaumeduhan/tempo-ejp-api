@@ -9,7 +9,7 @@ let today = moment().format('YYYY-MM-DD');
 let tomorrow = moment().add(1, 'days').format('YYYY-MM-DD');
 
 function generateJson() {
-  console.log('generate JSON launched at: ')
+  console.log('generateJSON launched at: ')
   console.log(moment().format('MMMM Do YYYY, h:mm:ss a'))
   let results = {
     "data": [],
@@ -20,9 +20,8 @@ function generateJson() {
   return Promise.all([EJPPromise, TEMPOPromise])
     .then(response => {
       response.forEach(el => results.data.push(el.data))
-      results.createdAt = moment().format('MMMM Do YYYY, h:mm:ss a')
+      results.createdAt = moment().toISOString()
       dataJson = results
-      console.log(results)
     })
     .catch(error => {
       console.log(error);
