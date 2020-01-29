@@ -1,6 +1,5 @@
 const express = require('express')
 const app = express()
-// const fs = require('fs')
 const axios = require('axios')
 const schedule = require('node-schedule')
 const moment = require('moment')
@@ -21,14 +20,6 @@ function generateJson() {
     .then(response => {
       response.forEach(el => results.data.push(el.data))
       dataJson = results
-      // fs.writeFile('data.json', JSON.stringify(results), function (err) {
-      //   if (err) {
-      //     console.log(err)
-      //     throw err;
-      //   }
-      //   console.log('File is created successfully.');
-      //   console.log(results.data);
-      // });
     })
     .catch(error => {
       console.log(error);
