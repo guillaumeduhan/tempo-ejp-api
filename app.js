@@ -4,12 +4,14 @@ const fs = require('fs')
 const axios = require('axios')
 const schedule = require('node-schedule')
 const moment = require('moment')
-const dataJsonPath = require('./data.json')
+let dataJson = undefined
 
 let today = moment().format('YYYY-MM-DD');
 let tomorrow = moment().add(1, 'days').format('YYYY-MM-DD');
 
 function generateJson() {
+  console.log('generate JSON launched at: ')
+  console.log(moment().format('MMMM Do YYYY, h:mm:ss a'))
   let results = {
     "data": []
   }
@@ -18,14 +20,15 @@ function generateJson() {
   return Promise.all([EJPPromise, TEMPOPromise])
     .then(response => {
       response.forEach(el => results.data.push(el.data))
-      fs.writeFile('data.json', JSON.stringify(results), function (err) {
-        if (err) {
-          console.log(err)
-          throw err;
-        }
-        console.log('File is created successfully.');
-        console.log(results.data);
-      });
+      dataJson = results
+      // fs.writeFile('data.json', JSON.stringify(results), function (err) {
+      //   if (err) {
+      //     console.log(err)
+      //     throw err;
+      //   }
+      //   console.log('File is created successfully.');
+      //   console.log(results.data);
+      // });
     })
     .catch(error => {
       console.log(error);
@@ -60,9 +63,9 @@ app.get('*', function (req, res) {
   if (req.method === 'OPTIONS') {
     res.set('Access-Control-Allow-Headers', 'Accept, Content-Type')
   }
-  res.json(dataJsonPath)
+  res.json(dataJson)
 })
 
-app.listen(() => (
+app.listen(3000, () => (
   generateJson()
 ))
