@@ -33,7 +33,7 @@ let job = schedule.scheduleJob('0 0 2 * * *', function(){
   generateJson()
 });
 
-let job1 = schedule.scheduleJob('0 0 13 * * *', function(){
+let job1 = schedule.scheduleJob('0 30 13 * * *', function(){
   generateJson()
 });
 
@@ -41,7 +41,11 @@ let job2 = schedule.scheduleJob('0 45 16 * * *', function(){
   generateJson()
 });
 
-let job3 = schedule.scheduleJob('0 0 17 * * *', function(){
+let job3 = schedule.scheduleJob('0 30 17 * * *', function(){
+  generateJson()
+});
+
+let job4 = schedule.scheduleJob('0 0 18 * * *', function(){
   generateJson()
 });
 
@@ -56,4 +60,6 @@ app.get('*', function (req, res) {
   res.json(dataJsonPath)
 })
 
-app.listen()
+app.listen(() => (
+  generateJson()
+))
