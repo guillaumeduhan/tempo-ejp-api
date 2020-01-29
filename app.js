@@ -26,6 +26,7 @@ function generateJson() {
     })
     .catch(error => {
       console.log(error);
+      throw err;
     });
 }
 
