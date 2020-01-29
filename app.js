@@ -19,14 +19,16 @@ function generateJson() {
     .then(response => {
       response.forEach(el => results.data.push(el.data))
       fs.writeFile('data.json', JSON.stringify(results), function (err) {
-        if (err) throw err;
+        if (err) {
+          console.log(err)
+          throw err;
+        }
         console.log('File is created successfully.');
         console.log(results.data);
       });
     })
     .catch(error => {
       console.log(error);
-      throw err;
     });
 }
 
