@@ -20,8 +20,9 @@ function generateJson() {
   return Promise.all([EJPPromise, TEMPOPromise])
     .then(response => {
       response.forEach(el => results.data.push(el.data))
-      results.createdAt = today
+      results.createdAt = moment().format('MMMM Do YYYY, h:mm:ss a')
       dataJson = results
+      console.log(results)
     })
     .catch(error => {
       console.log(error);
