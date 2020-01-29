@@ -13,7 +13,7 @@ function generateJson() {
   console.log(moment().format('MMMM Do YYYY, h:mm:ss a'))
   let results = {
     "data": [],
-     "createdAt": undefined
+    "createdAt": undefined
   }
   const EJPPromise = axios.get(`https://particulier.edf.fr/bin/edf_rc/servlets/ejptemponew?Date_a_remonter=${today}&TypeAlerte=EJP`)
   const TEMPOPromise = axios.get(`https://particulier.edf.fr/bin/edf_rc/servlets/ejptemponew?Date_a_remonter=${today}&TypeAlerte=TEMPO`)
@@ -22,6 +22,7 @@ function generateJson() {
       response.forEach(el => results.data.push(el.data))
       results.createdAt = moment().toISOString()
       dataJson = results
+      console.log(dataJson)
     })
     .catch(error => {
       console.log(error);
@@ -59,6 +60,6 @@ app.get('*', function (req, res) {
   res.json(dataJson)
 })
 
-app.listen(() => (
+app.listen(3000, () => (
   generateJson()
 ))
