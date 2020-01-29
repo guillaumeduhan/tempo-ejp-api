@@ -57,6 +57,6 @@ app.get('*', function (req, res) {
   res.json(dataJson)
 })
 
-app.listen(3000, () => (
+app.listen(() => (
   generateJson()
 ))
