@@ -41,7 +41,7 @@ let job2 = schedule.scheduleJob('0 45 16 * * *', function(){
   generateJson()
 });
 
-let job3 = schedule.scheduleJob('0 15 17 * * *', function(){
+let job3 = schedule.scheduleJob('0 30 17 * * *', function(){
   generateJson()
 });
 
