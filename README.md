@@ -12,9 +12,13 @@ API to catch TEMPO-EJP data, save it as JSON file and return on request.
 
 ## Note
 
-File 'data.json' gives an example of format saved.
+### How to
 
-Everyday, a job is scheduled at 4:45pm and 5:00pm with Node-Schedule to update data.json.
+Our function generateJSON fetches 2 promises: EJPPromise and TEMPOPromise. Data from response are pushed into our 'results' variables everytime a job is scheduled. Every route is set to serve 'dataJson' as JSON.
+
+### Jobs
+
+Everyday, a job is scheduled at 2:00am, 1:30pm, 4:45pm, 5:30pm and 6:00pm with Node-Schedule to update data.json.
 
 ## Versioning
 
