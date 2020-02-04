@@ -14,7 +14,7 @@ API to catch TEMPO-EJP data, save it as JSON file and return on request.
 
 ### How to
 
-Our function generateJSON fetches 2 promises: EJPPromise and TEMPOPromise. Data from response are pushed into our 'results' variables everytime a job is scheduled. Every route is set to serve 'dataJson' as JSON.
+Our function generateJSON fetches 2 promises: EJPPromise and TEMPOPromise. Data from response is pushed into our 'results' variables everytime a job is scheduled. Every route is set to serve 'dataJson' as JSON.
 
 ### Jobs
 
